@@ -1,0 +1,1360 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/neoziro/node-apns#readme">apns (v0.1.0)</a>
+</h1>
+<h4>APNS (Apple Push Notification Service) interface written in node.js</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns">module apns</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection">
+            function <span class="apidocSignatureSpan">apns.</span>Connection
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Device">
+            function <span class="apidocSignatureSpan">apns.</span>Device
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Notification">
+            function <span class="apidocSignatureSpan">apns.</span>Notification
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>Connection.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>Device.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>Errors</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>Notification.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>connection</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.Connection">module apns.Connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.Connection">
+            function <span class="apidocSignatureSpan">apns.</span>Connection
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.Connection.prototype">module apns.Connection.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.cacheNotification">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>cacheNotification
+            <span class="apidocSignatureSpan">(notification)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.checkInitialized">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>checkInitialized
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.destroyTlsConnection">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>destroyTlsConnection
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.drain">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>drain
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.handleTransmissionError">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>handleTransmissionError
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.initialize">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>initialize
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.log">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>log
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.notifyError">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>notifyError
+            <span class="apidocSignatureSpan">(errorCode, notification)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.openSocket">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>openSocket
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.resetTlsConnection">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>resetTlsConnection
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Connection.prototype.sendNotification">
+            function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>sendNotification
+            <span class="apidocSignatureSpan">(notification)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.Device">module apns.Device</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Device.Device">
+            function <span class="apidocSignatureSpan">apns.</span>Device
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.Device.prototype">module apns.Device.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Device.prototype.hexToken">
+            function <span class="apidocSignatureSpan">apns.Device.prototype.</span>hexToken
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Device.prototype.parseToken">
+            function <span class="apidocSignatureSpan">apns.Device.prototype.</span>parseToken
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Device.prototype.setToken">
+            function <span class="apidocSignatureSpan">apns.Device.prototype.</span>setToken
+            <span class="apidocSignatureSpan">(newToken)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.Notification">module apns.Notification</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Notification.Notification">
+            function <span class="apidocSignatureSpan">apns.</span>Notification
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.Notification.prototype">module apns.Notification.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.Notification.prototype.toJSON">
+            function <span class="apidocSignatureSpan">apns.Notification.prototype.</span>toJSON
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.connection">module apns.connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.connection.Connection">
+            function <span class="apidocSignatureSpan">apns.connection.</span>Connection
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.connection.</span>Errors</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns" id="apidoc.module.apns">module apns</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection" id="apidoc.element.apns.Connection">
+        function <span class="apidocSignatureSpan">apns.</span>Connection
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Connection = function (options)
+{
+   // Default options
+   this.options = {
+      certFile : null,
+      keyFile : null,
+      certData : null,
+      keyData : null,
+      passphrase : null,
+      gateway : "gateway.push.apple.com",
+      port : 2195,
+      enhanced : true,
+      errorCallback : null,
+      cacheLength : 1000,
+      connectionTimeout : 600000, //10 minutes
+      debug : false
+   };
+
+   extend(this.options, options);
+
+   this.initialized = false;
+
+   this.cert = undefined;
+   this.key = undefined;
+   this.passphrase = undefined;
+
+   this.tlsConnection = null;
+   this.writeBuffer = [];
+
+   this.initializeDeferred = null;
+   this.openSocketDeferred = null;
+
+   this.currentId = 0;
+   this.cachedNotifications = [];
+
+   this.connectionTimeoutInterval = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+options = {
+   keyFile : "conf/key.pem",
+   certFile : "conf/cert.pem",
+   debug : true
+};
+
+connection = new apns.<span class="apidocCodeKeywordSpan">Connection</span>(options);
+
+notification = new apns.Notification();
+notification.device = new apns.Device("iphone_token");
+notification.alert = "Hello World !";
+
+connection.sendNotification(notification);
+````
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Device" id="apidoc.element.apns.Device">
+        function <span class="apidocSignatureSpan">apns.</span>Device
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Device = function (token)
+{
+   var self = this;
+   self.token = undefined;
+
+   self.setToken(token);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   certFile : "conf/cert.pem",
+   debug : true
+};
+
+connection = new apns.Connection(options);
+
+notification = new apns.Notification();
+notification.device = new apns.<span class="apidocCodeKeywordSpan">Device</span>("iphone_token");
+notification.alert = "Hello World !";
+
+connection.sendNotification(notification);
+````
+
+Installation
+============
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Notification" id="apidoc.element.apns.Notification">
+        function <span class="apidocSignatureSpan">apns.</span>Notification
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Notification = function ()
+{
+   this.payload = {};
+   this.expiry = 0;
+   this.identifier = 0;
+   this.device;
+
+   this.alert = undefined;
+   this.badge = undefined;
+   this.sound = undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   keyFile : "conf/key.pem",
+   certFile : "conf/cert.pem",
+   debug : true
+};
+
+connection = new apns.Connection(options);
+
+notification = new apns.<span class="apidocCodeKeywordSpan">Notification</span>();
+notification.device = new apns.Device("iphone_token");
+notification.alert = "Hello World !";
+
+connection.sendNotification(notification);
+````
+
+Installation
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.Connection" id="apidoc.module.apns.Connection">module apns.Connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.Connection" id="apidoc.element.apns.Connection.Connection">
+        function <span class="apidocSignatureSpan">apns.</span>Connection
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Connection = function (options)
+{
+   // Default options
+   this.options = {
+      certFile : null,
+      keyFile : null,
+      certData : null,
+      keyData : null,
+      passphrase : null,
+      gateway : "gateway.push.apple.com",
+      port : 2195,
+      enhanced : true,
+      errorCallback : null,
+      cacheLength : 1000,
+      connectionTimeout : 600000, //10 minutes
+      debug : false
+   };
+
+   extend(this.options, options);
+
+   this.initialized = false;
+
+   this.cert = undefined;
+   this.key = undefined;
+   this.passphrase = undefined;
+
+   this.tlsConnection = null;
+   this.writeBuffer = [];
+
+   this.initializeDeferred = null;
+   this.openSocketDeferred = null;
+
+   this.currentId = 0;
+   this.cachedNotifications = [];
+
+   this.connectionTimeoutInterval = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+options = {
+   keyFile : "conf/key.pem",
+   certFile : "conf/cert.pem",
+   debug : true
+};
+
+connection = new apns.<span class="apidocCodeKeywordSpan">Connection</span>(options);
+
+notification = new apns.Notification();
+notification.device = new apns.Device("iphone_token");
+notification.alert = "Hello World !";
+
+connection.sendNotification(notification);
+````
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.Connection.prototype" id="apidoc.module.apns.Connection.prototype">module apns.Connection.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.cacheNotification" id="apidoc.element.apns.Connection.prototype.cacheNotification">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>cacheNotification
+        <span class="apidocSignatureSpan">(notification)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cacheNotification = function (notification)
+{
+   this.cachedNotifications.push(notification);
+
+   if (this.cachedNotifications.length &gt; this.options.cacheLength)
+   {
+      this.cachedNotifications.shift();
+   }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      }
+
+      pos += int2buf(token.length, data, pos, 2);
+      pos += token.copy(data, pos, 0);
+      pos += int2buf(messageLength, data, pos, 2);
+      data.write(message, pos, encoding);
+
+      this.<span class="apidocCodeKeywordSpan">cacheNotification</span>(notification);
+
+      this.tlsConnection.write(data);
+      this.log("Write : " + notification.device.token.toString("hex"));
+
+   }.bind(this));
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.checkInitialized" id="apidoc.element.apns.Connection.prototype.checkInitialized">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>checkInitialized
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkInitialized = function ()
+{
+   if(this.key &amp;&amp; this.cert)
+      this.initializeDeferred.resolve();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+{
+   this.cert = this.options.certData;
+}
+else if(this.options.certFile)
+{
+   fileLoader.load(this.options.certFile, function(data){
+      k.cert = data;
+      k.<span class="apidocCodeKeywordSpan">checkInitialized</span>();
+   });
+}
+
+if(this.options.keyData)
+{
+   this.key = this.options.keyData;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.destroyTlsConnection" id="apidoc.element.apns.Connection.prototype.destroyTlsConnection">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>destroyTlsConnection
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroyTlsConnection = function ()
+{
+   this.log("destroySoon");
+
+   if(this.tlsConnection)
+   {
+      this.tlsConnection.destroySoon();
+   }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     {
+        notification = this.cachedNotifications.shift();
+        this.writeBuffer.push(notification);
+
+        this.log("Catch error, add buffer : " + notification.device.token.toString("hex"));
+     }
+
+     this.<span class="apidocCodeKeywordSpan">destroyTlsConnection</span>();
+  }
+};
+
+/**
+* Cache notification
+* @param Notification notification
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.drain" id="apidoc.element.apns.Connection.prototype.drain">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>drain
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">drain = function ()
+{
+   this.log("drain");
+
+   if(this.tlsConnection &amp;&amp; this.tlsConnection.socket.bufferSize !== 0)
+      return;
+
+   while(this.writeBuffer.length &amp;&amp; this.tlsConnection &amp;&amp; this.tlsConnection.socket.bufferSize === 0)
+   {
+      this.sendNotification(this.writeBuffer.shift());
+   }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      throw this.authorizationError;
+
+   if(k.connectionTimeoutInterval)
+      clearInterval(k.connectionTimeoutInterval);
+
+   k.connectionTimeoutInterval = setTimeout(k.destroyTlsConnection.bind(k), k.options.connectionTimeout);
+
+   k.<span class="apidocCodeKeywordSpan">drain</span>();
+   k.openSocketDeferred.resolve();
+});
+
+this.tlsConnection.on("data", this.handleTransmissionError.bind(this));
+this.tlsConnection.on("error", this.destroyTlsConnection.bind(this));
+this.tlsConnection.on("drain", this.drain.bind(this));
+this.tlsConnection.on("end", this.resetTlsConnection.bind(this));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.handleTransmissionError" id="apidoc.element.apns.Connection.prototype.handleTransmissionError">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>handleTransmissionError
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">handleTransmissionError = function (data)
+{
+   if (data[0] == 8)
+   {
+      var errorCode = data[1],
+      identifier = bytes2int(data.slice(2, 6), 4),
+      notification = undefined,
+      count,
+      i;
+
+      while(this.cachedNotifications.length)
+      {
+         notification = this.cachedNotifications.shift();
+
+         if(notification._uid == identifier)
+            break;
+      }
+
+      this.notifyError(errorCode, notification);
+
+      count = this.cachedNotifications.length;
+
+      for (i = 0; i &lt; count; i++)
+      {
+         notification = this.cachedNotifications.shift();
+         this.writeBuffer.push(notification);
+
+         this.log("Catch error, add buffer : " + notification.device.token.toString("hex"));
+      }
+
+      this.destroyTlsConnection();
+   }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.initialize" id="apidoc.element.apns.Connection.prototype.initialize">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>initialize
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">initialize = function ()
+{
+   if(this.initializeDeferred)
+      return this.initializeDeferred.promise;
+   else
+      this.initializeDeferred = Q.defer();
+
+   if(typeof this.options.passphrase === "string")
+      this.passphrase = this.options.passphrase;
+
+   var k = this;
+
+   if(this.options.certData)
+   {
+      this.cert = this.options.certData;
+   }
+   else if(this.options.certFile)
+   {
+      fileLoader.load(this.options.certFile, function(data){
+         k.cert = data;
+         k.checkInitialized();
+      });
+   }
+
+   if(this.options.keyData)
+   {
+      this.key = this.options.keyData;
+   }
+   else if(this.options.keyFile)
+   {
+      fileLoader.load(this.options.keyFile, function(data){
+         k.key = data;
+         k.checkInitialized();
+      });
+   }
+
+   return this.initializeDeferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+{
+   if(this.openSocketDeferred)
+      return this.openSocketDeferred.promise;
+   else
+      this.openSocketDeferred = Q.defer();
+}
+
+this.<span class="apidocCodeKeywordSpan">initialize</span>().then(function()
+{
+   var tlsConnectionOptions = {};
+
+   if(this.key)
+      tlsConnectionOptions.key = this.key;
+
+   if(this.cert)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.log" id="apidoc.element.apns.Connection.prototype.log">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>log
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function (message)
+{
+   this.options.debug &amp;&amp; console.log("[" + new Date() + "] " + message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   }
+
+   return this.initializeDeferred.promise;
+};
+
+Connection.prototype.log = function(message)
+{
+   this.options.debug &amp;&amp; console.<span class="apidocCodeKeywordSpan">log</span>("[" + new Date() + "] &amp;#
+x22; + message);
+};
+
+/**
+ * Open socket
+ */
+Connection.prototype.openSocket = function()
+{
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.notifyError" id="apidoc.element.apns.Connection.prototype.notifyError">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>notifyError
+        <span class="apidocSignatureSpan">(errorCode, notification)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">notifyError = function (errorCode, notification)
+{
+   if(typeof this.options.errorCallback === 'function')
+      this.options.errorCallback(errorCode, notification);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+{
+   notification = this.cachedNotifications.shift();
+
+   if(notification._uid == identifier)
+      break;
+}
+
+this.<span class="apidocCodeKeywordSpan">notifyError</span>(errorCode, notification);
+
+count = this.cachedNotifications.length;
+
+for (i = 0; i &lt; count; i++)
+{
+   notification = this.cachedNotifications.shift();
+   this.writeBuffer.push(notification);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.openSocket" id="apidoc.element.apns.Connection.prototype.openSocket">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>openSocket
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">openSocket = function ()
+{
+   this.log("open socket");
+
+   if(this.tlsConnection !== null
+   &amp;&amp; (this.tlsConnection.readyState === "open" || this.tlsConnection.readyState === "opening"))
+      return this.openSocketDeferred.promise;
+   else
+   {
+      if(this.openSocketDeferred)
+         return this.openSocketDeferred.promise;
+      else
+         this.openSocketDeferred = Q.defer();
+   }
+
+   this.initialize().then(function()
+   {
+      var tlsConnectionOptions = {};
+
+      if(this.key)
+         tlsConnectionOptions.key = this.key;
+
+      if(this.cert)
+         tlsConnectionOptions.cert = this.cert;
+
+      if(this.passphrase)
+         tlsConnectionOptions.passphrase = this.passphrase;
+
+      var k = this;
+
+      this.tlsConnection = tls.connect(
+      this.options['port'],
+      this.options['gateway'],
+      tlsConnectionOptions,
+      function(){
+         if (!this.authorized)
+            throw this.authorizationError;
+
+         if(k.connectionTimeoutInterval)
+            clearInterval(k.connectionTimeoutInterval);
+
+         k.connectionTimeoutInterval = setTimeout(k.destroyTlsConnection.bind(k), k.options.connectionTimeout);
+
+         k.drain();
+         k.openSocketDeferred.resolve();
+      });
+
+      this.tlsConnection.on("data", this.handleTransmissionError.bind(this));
+      this.tlsConnection.on("error", this.destroyTlsConnection.bind(this));
+      this.tlsConnection.on("drain", this.drain.bind(this));
+      this.tlsConnection.on("end", this.resetTlsConnection.bind(this));
+      this.tlsConnection.once("close", this.resetTlsConnection.bind(this));
+
+   }.bind(this));
+
+   return this.openSocketDeferred.promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if(this.tlsConnection)
+     this.tlsConnection.removeAllListeners();
+
+  this.tlsConnection = null;
+  this.openSocketDeferred = null;
+
+  if(this.writeBuffer.length)
+     this.<span class="apidocCodeKeywordSpan">openSocket</span>();
+};
+
+/**
+* Notify an error
+* @param number errorCode
+* @param Notification notification
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.resetTlsConnection" id="apidoc.element.apns.Connection.prototype.resetTlsConnection">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>resetTlsConnection
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resetTlsConnection = function ()
+{
+   this.log("clear");
+
+   if(this.tlsConnection)
+      this.tlsConnection.removeAllListeners();
+
+   this.tlsConnection = null;
+   this.openSocketDeferred = null;
+
+   if(this.writeBuffer.length)
+      this.openSocket();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Connection.prototype.sendNotification" id="apidoc.element.apns.Connection.prototype.sendNotification">
+        function <span class="apidocSignatureSpan">apns.Connection.prototype.</span>sendNotification
+        <span class="apidocSignatureSpan">(notification)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sendNotification = function (notification)
+{
+   this.log("Send : " + notification.device.token.toString("hex"));
+
+   this.openSocket().then(function()
+   {
+      if(this.tlsConnection.socket.bufferSize !== 0 || !this.tlsConnection.writable)
+      {
+         this.writeBuffer.push(notification);
+         return ;
+      }
+
+      var encoding = "utf8",
+      token = notification.device.token,
+      message = JSON.stringify(notification),
+      messageLength = Buffer.byteLength(message, encoding),
+      pos = 0,
+      data;
+
+      if (typeof token === "undefined")
+      {
+         this.notifyError(Errors['missingDeviceToken'], notification);
+         return ;
+      }
+
+      if (messageLength &gt; 256)
+      {
+         this.notifyError(Errors['invalidPayloadSize'], notification);
+         return ;
+      }
+
+      if (notification.encoding)
+      {
+         encoding = notification.encoding;
+      }
+
+      notification._uid = this.currentId++;
+
+      if (this.options.enhanced === true)
+      {
+         data = new Buffer(1 + 4 + 4 + 2 + token.length + 2 + messageLength);
+         data[pos] = 1;
+         pos++;
+
+         pos += int2buf(notification._uid, data, pos, 4);
+
+         pos += int2buf(notification.expiry, data, pos, 4);
+      }
+      else
+      {
+         data = new Buffer(1 + 2 + token.length + 2 + messageLength);
+         data[pos] = 0;
+         pos++;
+      }
+
+      pos += int2buf(token.length, data, pos, 2);
+      pos += token.copy(data, pos, 0);
+      pos += int2buf(messageLength, data, pos, 2);
+      data.write(message, pos, encoding);
+
+      this.cacheNotification(notification);
+
+      this.tlsConnection.write(data);
+      this.log("Write : " + notification.device.token.toString("hex"));
+
+   }.bind(this));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+connection = new apns.Connection(options);
+
+notification = new apns.Notification();
+notification.device = new apns.Device("iphone_token");
+notification.alert = "Hello World !";
+
+connection.<span class="apidocCodeKeywordSpan">sendNotification</span>(notification);
+````
+
+Installation
+============
+
+Via [npm][]:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.Device" id="apidoc.module.apns.Device">module apns.Device</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Device.Device" id="apidoc.element.apns.Device.Device">
+        function <span class="apidocSignatureSpan">apns.</span>Device
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Device = function (token)
+{
+   var self = this;
+   self.token = undefined;
+
+   self.setToken(token);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   certFile : "conf/cert.pem",
+   debug : true
+};
+
+connection = new apns.Connection(options);
+
+notification = new apns.Notification();
+notification.device = new apns.<span class="apidocCodeKeywordSpan">Device</span>("iphone_token");
+notification.alert = "Hello World !";
+
+connection.sendNotification(notification);
+````
+
+Installation
+============
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.Device.prototype" id="apidoc.module.apns.Device.prototype">module apns.Device.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Device.prototype.hexToken" id="apidoc.element.apns.Device.prototype.hexToken">
+        function <span class="apidocSignatureSpan">apns.Device.prototype.</span>hexToken
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hexToken = function ()
+{
+   var out = [];
+   var len = this.token.length;
+   var n;
+   for (var i = 0; i &lt; len; i++)
+   {
+      n = this.token[i];
+      if (n &lt; 16) out[i] = "0" + n.toString(16);
+      else out[i] = n.toString(16);
+   }
+
+   return out.join("");
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Device.prototype.parseToken" id="apidoc.element.apns.Device.prototype.parseToken">
+        function <span class="apidocSignatureSpan">apns.Device.prototype.</span>parseToken
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseToken = function (token)
+{
+   token = token.replace(/\s/g, "");
+   var length = Math.ceil(token.length / 2);
+   var hexToken = new Buffer(length);
+   for (var i = 0; i &lt; token.length; i += 2)
+   {
+      var word = token[i];
+
+      if ((i + 1) &gt;= token.length || typeof(token[i + 1]) === undefined)
+         word += '0';
+      else
+         word += token[i + 1];
+
+      hexToken[i / 2] = parseInt(word, 16);
+   }
+
+   return hexToken;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Device.prototype.setToken" id="apidoc.element.apns.Device.prototype.setToken">
+        function <span class="apidocSignatureSpan">apns.Device.prototype.</span>setToken
+        <span class="apidocSignatureSpan">(newToken)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setToken = function (newToken)
+{
+   if(typeof newToken === "string")
+      newToken = this.parseToken(newToken);
+
+   this.token = newToken;
+
+   return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.Notification" id="apidoc.module.apns.Notification">module apns.Notification</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Notification.Notification" id="apidoc.element.apns.Notification.Notification">
+        function <span class="apidocSignatureSpan">apns.</span>Notification
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Notification = function ()
+{
+   this.payload = {};
+   this.expiry = 0;
+   this.identifier = 0;
+   this.device;
+
+   this.alert = undefined;
+   this.badge = undefined;
+   this.sound = undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   keyFile : "conf/key.pem",
+   certFile : "conf/cert.pem",
+   debug : true
+};
+
+connection = new apns.Connection(options);
+
+notification = new apns.<span class="apidocCodeKeywordSpan">Notification</span>();
+notification.device = new apns.Device("iphone_token");
+notification.alert = "Hello World !";
+
+connection.sendNotification(notification);
+````
+
+Installation
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.Notification.prototype" id="apidoc.module.apns.Notification.prototype">module apns.Notification.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.Notification.prototype.toJSON" id="apidoc.element.apns.Notification.prototype.toJSON">
+        function <span class="apidocSignatureSpan">apns.Notification.prototype.</span>toJSON
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toJSON = function ()
+{
+   if(this.payload === undefined)
+      this.payload = {};
+
+   if(this.payload.aps === undefined)
+      this.payload.aps = {};
+
+   if(typeof this.badge === "number")
+      this.payload.aps.badge = this.badge;
+
+   if(typeof this.sound === "string")
+      this.payload.aps.sound = this.sound;
+
+   if(typeof this.alert === "string" || typeof this.alert == "object")
+      this.payload.aps.alert = this.alert;
+
+   return this.payload;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.connection" id="apidoc.module.apns.connection">module apns.connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.connection.Connection" id="apidoc.element.apns.connection.Connection">
+        function <span class="apidocSignatureSpan">apns.connection.</span>Connection
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Connection = function (options)
+{
+   // Default options
+   this.options = {
+      certFile : null,
+      keyFile : null,
+      certData : null,
+      keyData : null,
+      passphrase : null,
+      gateway : "gateway.push.apple.com",
+      port : 2195,
+      enhanced : true,
+      errorCallback : null,
+      cacheLength : 1000,
+      connectionTimeout : 600000, //10 minutes
+      debug : false
+   };
+
+   extend(this.options, options);
+
+   this.initialized = false;
+
+   this.cert = undefined;
+   this.key = undefined;
+   this.passphrase = undefined;
+
+   this.tlsConnection = null;
+   this.writeBuffer = [];
+
+   this.initializeDeferred = null;
+   this.openSocketDeferred = null;
+
+   this.currentId = 0;
+   this.cachedNotifications = [];
+
+   this.connectionTimeoutInterval = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+options = {
+   keyFile : "conf/key.pem",
+   certFile : "conf/cert.pem",
+   debug : true
+};
+
+connection = new apns.<span class="apidocCodeKeywordSpan">Connection</span>(options);
+
+notification = new apns.Notification();
+notification.device = new apns.Device("iphone_token");
+notification.alert = "Hello World !";
+
+connection.sendNotification(notification);
+````
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
