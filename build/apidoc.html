@@ -118,6 +118,24 @@
 
         </li>
 
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>file_loader</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>notification</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">apns.</span>util</span>
+
+        </li>
+
     </ol></li>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.apns.Connection">module apns.Connection</a><ol>
@@ -325,6 +343,72 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.file_loader">module apns.file_loader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.file_loader.FileLoader">
+            function <span class="apidocSignatureSpan">apns.file_loader.</span>FileLoader
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.notification">module apns.notification</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.notification.Device">
+            function <span class="apidocSignatureSpan">apns.notification.</span>Device
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.notification.Notification">
+            function <span class="apidocSignatureSpan">apns.notification.</span>Notification
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.apns.util">module apns.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.util.bytes2int">
+            function <span class="apidocSignatureSpan">apns.util.</span>bytes2int
+            <span class="apidocSignatureSpan">(bytes, length, start)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.util.extend">
+            function <span class="apidocSignatureSpan">apns.util.</span>extend
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.apns.util.int2buf">
+            function <span class="apidocSignatureSpan">apns.util.</span>int2buf
+            <span class="apidocSignatureSpan">(number, buffer, start, length)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -467,6 +551,12 @@ connection.sendNotification(notification);
 Installation
 ...</pre></li>
     </ul>
+
+
+
+
+
+
 
 
 
@@ -1179,7 +1269,23 @@ Installation
 
    return hexToken;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+ * Set the token
+ * @param mixed newToken
+ */
+Device.prototype.setToken = function (newToken)
+{
+   if(typeof newToken === &#x22;string&#x22;)
+      newToken = this.<span class="apidocCodeKeywordSpan">parseToken</span>(newToken);
+
+   this.token = newToken;
+
+   return this;
+};
+
+/**
+...</pre></li>
     </ul>
 
 
@@ -1200,7 +1306,23 @@ Installation
 
    return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param boolean ascii
+*/
+var Device = function (token)
+{
+  var self = this;
+  self.token = undefined;
+
+  self.<span class="apidocCodeKeywordSpan">setToken</span>(token);
+};
+
+/**
+* Convert ascii token to Buffer token
+* @param string token
+* @return Buffer
+*/
+...</pre></li>
     </ul>
 
 
@@ -1354,6 +1476,177 @@ connection.sendNotification(notification);
     </ul>
 
 
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.file_loader" id="apidoc.module.apns.file_loader">module apns.file_loader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.file_loader.FileLoader" id="apidoc.element.apns.file_loader.FileLoader">
+        function <span class="apidocSignatureSpan">apns.file_loader.</span>FileLoader
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">FileLoader = function ()
+{
+<span class="apidocCodeCommentSpan">   /**
+    * Files
+    * @type object
+    */
+</span>   this.files = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.notification" id="apidoc.module.apns.notification">module apns.notification</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.notification.Device" id="apidoc.element.apns.notification.Device">
+        function <span class="apidocSignatureSpan">apns.notification.</span>Device
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Device = function (token)
+{
+   var self = this;
+   self.token = undefined;
+
+   self.setToken(token);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   certFile : &#x22;conf/cert.pem&#x22;,
+   debug : true
+};
+
+connection = new apns.Connection(options);
+
+notification = new apns.Notification();
+notification.device = new apns.<span class="apidocCodeKeywordSpan">Device</span>(&#x22;iphone_token&#x22;);
+notification.alert = &#x22;Hello World !&#x22;;
+
+connection.sendNotification(notification);
+````
+
+Installation
+============
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.notification.Notification" id="apidoc.element.apns.notification.Notification">
+        function <span class="apidocSignatureSpan">apns.notification.</span>Notification
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Notification = function ()
+{
+   this.payload = {};
+   this.expiry = 0;
+   this.identifier = 0;
+   this.device;
+
+   this.alert = undefined;
+   this.badge = undefined;
+   this.sound = undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   keyFile : &#x22;conf/key.pem&#x22;,
+   certFile : &#x22;conf/cert.pem&#x22;,
+   debug : true
+};
+
+connection = new apns.Connection(options);
+
+notification = new apns.<span class="apidocCodeKeywordSpan">Notification</span>();
+notification.device = new apns.Device(&#x22;iphone_token&#x22;);
+notification.alert = &#x22;Hello World !&#x22;;
+
+connection.sendNotification(notification);
+````
+
+Installation
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.apns.util" id="apidoc.module.apns.util">module apns.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.apns.util.bytes2int" id="apidoc.element.apns.util.bytes2int">
+        function <span class="apidocSignatureSpan">apns.util.</span>bytes2int
+        <span class="apidocSignatureSpan">(bytes, length, start)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">bytes2int = function (bytes, length, start) {
+   if (start === undefined) start = 0;
+   var num = 0;
+   length -= 1;
+   for (var i = 0; i &#x3c;= length; i++) {
+      num += (bytes[start + i] &#x3c;&#x3c; ((length - i) * 8));
+   }
+   return num;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.util.extend" id="apidoc.element.apns.util.extend">
+        function <span class="apidocSignatureSpan">apns.util.</span>extend
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (target)
+{
+   var ar = [];
+   ar.slice.call(arguments, 1).forEach(function(source) {
+      for (key in source)
+        if (source[key] !== undefined)
+          target[key] = source[key];
+   });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.apns.util.int2buf" id="apidoc.element.apns.util.int2buf">
+        function <span class="apidocSignatureSpan">apns.util.</span>int2buf
+        <span class="apidocSignatureSpan">(number, buffer, start, length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">int2buf = function (number, buffer, start, length) {
+   length -= 1;
+   for (var i = 0; i &#x3c;= length; i++) {
+      buffer[start + length - i] = number &#x26; 0xff;
+      number = number &#x3e;&#x3e; 8;
+   }
+   return length + 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
 
 
 </div>
