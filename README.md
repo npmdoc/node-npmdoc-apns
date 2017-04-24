@@ -1,4 +1,7 @@
-# api documentation for  [apns (v0.1.0)](https://github.com/neoziro/node-apns#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-apns.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-apns) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-apns.svg)](https://travis-ci.org/npmdoc/node-npmdoc-apns)
+# npmdoc-apns
+
+#### api documentation for  [apns (v0.1.0)](https://github.com/neoziro/node-apns#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-apns.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-apns) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-apns.svg)](https://travis-ci.org/npmdoc/node-npmdoc-apns)
+
 #### APNS (Apple Push Notification Service) interface written in node.js
 
 [![NPM](https://nodei.co/npm/apns.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/apns)
@@ -59,7 +62,8 @@
         "type": "git",
         "url": "git://github.com/neoziro/node-apns.git"
     },
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "bin": {}
 }
 ```
 
